@@ -57,6 +57,24 @@ public class DAOUsuarios {
                 new String[]{ String.valueOf( usuario.getID())}
                 )   > 0;
     }
+    public boolean updatecvbyid(ContentValues cv ){
+
+        return   ad.update(
+                DB.TABLE_USUARIOS_NAME,
+                cv ,
+                "_id=?",
+                new String[]{ String.valueOf( cv.get("_id"))}
+        )   > 0;
+    }
+    public boolean updatecvbyname(ContentValues cv ){
+
+        return   ad.update(
+                DB.TABLE_USUARIOS_NAME,
+                cv ,
+                "_id=?",
+                new String[]{ String.valueOf( cv.get("nombre"))}
+        )   > 0;
+    }
 
     public List<Usuario> getAll(){
         List<Usuario> lst = new ArrayList<Usuario>();
@@ -117,6 +135,19 @@ public class DAOUsuarios {
         cursor = ad.rawQuery("select * from " + DB.TABLE_USUARIOS_NAME + " where " +
                         DB.COLUMS_TABLEUSUARIOS[0]  + "=?",
                 new String[]{ String.valueOf( id)} );
+
+
+        return cursor;
+    }
+
+    public Cursor getOneByNameCursor(String nombre){
+
+        Cursor cursor = null;
+
+
+        cursor = ad.rawQuery("select * from " + DB.TABLE_USUARIOS_NAME + " where " +
+                        DB.COLUMS_TABLEUSUARIOS[1]  + "=?",
+                new String[]{ String.valueOf( nombre)} );
 
 
         return cursor;
