@@ -75,6 +75,14 @@ public class MiProveedorContenido extends ContentProvider {
                String id =  uri.getLastPathSegment();
 
                result = daoUsuarios.getOneByIDCursor( Long.parseLong(id) );
+               break;
+
+            case 3:
+                //base de datos
+                String nombre =  uri.getLastPathSegment();
+
+                result = daoUsuarios.getOneByNameCursor(nombre);
+                break;
 
         }
 
@@ -136,6 +144,16 @@ public class MiProveedorContenido extends ContentProvider {
 
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String s, @Nullable String[] strings) {
+    int result = 0;
+        switch (uriMatcher.match(uri)){
+            case 2:
+                result = (daoUsuarios.updatecvbyid(contentValues))?1:0;
+                break;
+            case 3:
+                result = (daoUsuarios.updatecvbyname(contentValues))?1:0;
+                break;
+
+        }
         return 0;
     }
 }
