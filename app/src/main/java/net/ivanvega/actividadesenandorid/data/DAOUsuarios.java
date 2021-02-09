@@ -147,7 +147,7 @@ public class DAOUsuarios {
 
         cursor = ad.rawQuery("select * from " + DB.TABLE_USUARIOS_NAME + " where " +
                         DB.COLUMS_TABLEUSUARIOS[1]  + "=?",
-                new String[]{ String.valueOf( nombre)} );
+                new String[]{ nombre} );
 
 
         return cursor;
