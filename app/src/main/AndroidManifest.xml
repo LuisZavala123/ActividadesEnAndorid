@@ -41,7 +41,15 @@
             android:authorities="net.ivanvega.actividadesenandorid.provider"
             android:name=".provider.MiProveedorContenido"
             android:exported="true"
-            ></provider>
+            android:grantUriPermissions="true"
+            android:permission="string"
+            android:readPermission="string"
+            android:writePermission="string"
+            >
+            <grant-uri-permission android:path="string"
+                android:pathPattern="string"
+                android:pathPrefix="string" />
+        </provider>
     </application>
 
 </manifest>

@@ -92,7 +92,9 @@ public class MainActivityMenuPrincipal extends AppCompatActivity {
                 ActivityCompat.requestPermissions(this,
                         new String[] { Manifest.permission.WRITE_EXTERNAL_STORAGE },
                         PERMISO_WRITEEXTERNAL);
-
+            ActivityCompat.requestPermissions(this,
+                    new String[] { Manifest.permission.WRITE_EXTERNAL_STORAGE },
+                    PERMISO_WRITEEXTERNAL);
         }
     }
 
